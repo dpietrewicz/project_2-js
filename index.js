@@ -2,7 +2,7 @@ const btn = document.getElementById("convertBtn");
 const addAlert = document.getElementById("addAlert");
 
 async function fetchExchangeRate(currencyCode) {
-    const url = `http://api.nbp.pl/api/exchangerates/rates/A/${currencyCode}`;
+    const url = `https://api.nbp.pl/api/exchangerates/rates/A/${currencyCode}`;
     const response = await fetch(url);
     console.log(response);
     if (!response.ok) {
