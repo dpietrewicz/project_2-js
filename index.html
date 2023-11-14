@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="index.css" />
+        <title>Przelicznik walut</title>
+    </head>
+    <body>
+        <div class="top-container">
+            <svg
+                class="logo-image"
+                version="1.1"
+                id="ios7_x5F_arrows_1_"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0"
+                y="0"
+                viewBox="0 0 128 128"
+                style="enable-background: new 0 0 128 128"
+                xml:space="preserve"
+            >
+                <style>
+                    .st0 {
+                        display: none;
+                    }
+                    .st1 {
+                        display: inline;
+                    }
+                </style>
+                <g id="_x33_4_1_">
+                    <path
+                        d="M33.8 53.3 30 49.5-.1 79.7 30 109.9l3.8-3.8L10 82.3h63.2v-5.2H10l23.8-23.8zm94.1-5.1L97.8 18.1 94 21.9l23.8 23.8h-63v5.2h63L94.1 74.8l3.8 3.8L128 48.5v-.3h-.1z"
+                        id="icon_8_"
+                    />
+                </g>
+            </svg>
+            <h1 class="title">Przelicznik walut</h1>
+        </div>
+
+        <div class="input-container">
+            <input
+                type="number"
+                id="amountInput"
+                class="amount-input"
+                placeholder="Kwota PLN"
+                required
+                min="0.01"
+                step="0.01"
+            />
+            <select
+                name="Currency Select"
+                id="currencySelect"
+                class="amount-input"
+            >
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CHF">CHF</option>
+            </select>
+            <button id="convertBtn" class="btn-convert">Przelicz</button>
+        </div>
+        <p id="addAlert" class="add-alert"></p>
+        <div class="output-container">
+            <div class="output-container-elements">
+                <span>TO</span>
+                <div>
+                    <span id="outputAmount" class="output-amount"></span>
+                    <span>PLN</span>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
