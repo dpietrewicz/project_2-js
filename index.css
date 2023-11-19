@@ -34,7 +34,7 @@ body {
     display: flex;
     align-items: center;
     margin: 20px 0 10px 20px;
-    gap: 8px;
+    gap: 7px;
 }
 
 .logo-image {
@@ -75,7 +75,7 @@ body {
 .output-container {
     margin: 15px 0 0 20px;
     padding: 5px 10px 5px 10px;
-    width: 195px;
+    width: 191px;
     font-size: 13px;
     border: 1px solid var(--color-grey-light-4);
     background-color: var(--color-grey-light-2);
@@ -91,5 +91,5 @@ body {
 }
 
 .output-amount {
-    font-weight: bold;
+    font-weight: 700;
 }

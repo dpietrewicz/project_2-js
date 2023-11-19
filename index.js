@@ -1,40 +1,38 @@
-const btn = document.getElementById("convertBtn");
+const form = document.getElementById("convertForm");
 const addAlert = document.getElementById("addAlert");
 
 async function fetchExchangeRate(currencyCode) {
-    const url = `https://api.nbp.pl/api/exchangerates/rates/A/${currencyCode}`;
-    const response = await fetch(url);
-    console.log(response);
-    if (!response.ok) {
-        throw new Error(`Coś poszło nie tak: ${response.statusText}`);
-    }
-    const data = await response.json();
-    return data.rates[0].mid;
-}
-
-function convertCurrency() {
-    const currencyCode = document.getElementById("currencySelect").value;
-    const inputAmount = parseFloat(
-        document.getElementById("amountInput").value
-    ).toFixed(2);
-    if (inputAmount.trim() === "NaN") {
-        addAlert.innerText = "Wprowadź kwotę";
-    } else if (inputAmount.trim() <= 0) {
-        addAlert.innerText = "Wartość powinna być większa od 0";
-    } else {
-        addAlert.innerHTML = "";
-        fetchExchangeRate(currencyCode)
-            .then((rate) => {
-                const result = rate * inputAmount;
-                document.getElementById("outputAmount").innerText =
-                    parseFloat(result).toFixed(2);
-            })
-            .catch((err) => {
-                console.error(err);
-                addAlert.innerText =
-                    "Kalkulator jest chwilowo niedostępny. Za utrudnienia przepraszamy.";
-            });
+    try {
+        const url = `https://api.nbp.pl/api/exchangerates/rates/A/${currencyCode}`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("Błąd wczytywania danych");
+        }
+        const data = await response.json();
+        return data.rates[0].mid;
+    } catch {
+        throw new Error("Błąd wczytywania danych");
     }
 }
 
-btn.addEventListener("click", convertCurrency);
+function convertCurrency(event) {
+    event.preventDefault();
+    const currencyCode = event.target.currencySelect.value;
+    const inputAmount = Number(event.target.amountInput.value);
+    if (inputAmount <= 0) {
+        addAlert.innerText = "Wprowadź poprawną kwotę";
+        return;
+    }
+    addAlert.innerText = "";
+    fetchExchangeRate(currencyCode)
+        .then((rate) => {
+            const result = rate * inputAmount;
+            document.getElementById("outputAmount").innerText =
+                result.toFixed(2);
+        })
+        .catch((err) => {
+            addAlert.innerText = err;
+        });
+}
+
+form.addEventListener("submit", convertCurrency);
