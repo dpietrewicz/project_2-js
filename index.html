@@ -13,7 +13,7 @@
         <title>Przelicznik walut</title>
     </head>
     <body>
-        <div class="top-container">
+        <header class="header">
             <svg
                 class="logo-image"
                 version="1.1"
@@ -32,16 +32,16 @@
                 </g>
             </svg>
             <h1 class="title">Przelicznik walut</h1>
-        </div>
+        </header>
 
         <form class="input-container" id="convertForm" novalidate>
             <input
                 type="number"
                 name="amountInput"
-                class="amount-input"
+                class="input-amount"
                 placeholder="Kwota PLN"
             />
-            <select name="currencySelect" class="amount-input">
+            <select name="currencySelect" class="input-amount">
                 <option value="EUR">EUR</option>
                 <option value="USD">USD</option>
                 <option value="CHF">CHF</option>

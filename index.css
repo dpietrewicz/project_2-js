@@ -2,11 +2,9 @@
     --color-red-dark: #ba265d;
     --color-grey-light-1: #faf9f9;
     --color-grey-light-2: #f4f2f2;
-    --color-grey-light-3: #f0eeee;
-    --color-grey-light-4: #ccc;
+    --color-grey-light-3: #ccc;
     --color-grey-dark-1: #333;
     --color-grey-dark-2: #777;
-    --color-grey-dark-3: #999;
 }
 
 * {
@@ -30,7 +28,7 @@ body {
     min-height: 100vh;
 }
 
-.top-container {
+.header {
     display: flex;
     align-items: center;
     margin: 20px 0 10px 20px;
@@ -48,8 +46,8 @@ body {
     width: 300px;
 }
 
-.amount-input {
-    border: 1px solid var(--color-grey-light-4);
+.input-amount {
+    border: 1px solid var(--color-grey-light-3);
     background-color: var(--color-grey-light-2);
     border-radius: 5px;
     outline: none;
@@ -77,7 +75,7 @@ body {
     padding: 5px 10px 5px 10px;
     width: 191px;
     font-size: 13px;
-    border: 1px solid var(--color-grey-light-4);
+    border: 1px solid var(--color-grey-light-3);
     background-color: var(--color-grey-light-2);
     border-radius: 5px;
     box-shadow: var(--shadow-light);
