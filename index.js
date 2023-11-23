@@ -5,11 +5,8 @@ async function fetchExchangeRate(currencyCode) {
     try {
         const url = `https://api.nbp.pl/api/exchangerates/rates/A/${currencyCode}`;
         const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error("Błąd wczytywania danych");
-        }
         const data = await response.json();
-        return data?.rates?.[0].mid;
+        return data?.rates?.[0]?.mid;
     } catch {
         throw new Error("Błąd wczytywania danych");
     }
